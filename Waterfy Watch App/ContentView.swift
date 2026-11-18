@@ -20,13 +20,14 @@ struct ContentView: View {
             HStack(spacing: 15) {
                 // ML Text
                 Text("\(waterCount)ml")
-                    .font(.system(size: 40))
+                    .font(.system(size: 39))
                 
-                //
+                // drop image
                 Image(systemName: "drop")
                     .imageScale(.large)
                     .foregroundStyle(.blue)
             }
+                .padding(.bottom, 20) // hstack bottom padding
 
             // buttons
             HStack(spacing: 15) {
@@ -45,12 +46,20 @@ struct ContentView: View {
                 
                 // + button
                 Button {
-                    waterCount += 100
+                    if (waterCount >= 5000) {
+                        // do nothing
+                    } else {
+                        waterCount += 100
+                    }
                     print("debug + button")
                 } label: {
                     Image(systemName: "plus")
                 }
                 .foregroundStyle(.blue)
+            }
+            
+            Button {} label: {
+                Text("Reset")
             }
         }
         .padding()
