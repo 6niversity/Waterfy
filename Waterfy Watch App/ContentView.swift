@@ -12,9 +12,6 @@ struct ContentView: View {
     @State private var waterCount = 0;
     
     var body: some View {
-        Text("Waterfy 💧")
-            .position(x: 50, y: -25)
-            .bold()
         VStack {
             // Vertical Stack
             HStack(spacing: 15) {
@@ -27,7 +24,7 @@ struct ContentView: View {
                     .imageScale(.large)
                     .foregroundStyle(.blue)
             }
-                .padding(.bottom, 20) // hstack bottom padding
+                .padding(.bottom, 9) // hstack bottom padding
 
             // buttons
             HStack(spacing: 15) {
@@ -58,9 +55,14 @@ struct ContentView: View {
                 .foregroundStyle(.blue)
             }
             
-            Button {} label: {
+            Button {
+                // when pressed, reset waterCount
+                waterCount = 0
+            } label: {
                 Text("Reset")
             }
+            .foregroundStyle(.green)
+            .padding(.all, 6)
         }
         .padding()
     }
